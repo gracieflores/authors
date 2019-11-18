@@ -1,0 +1,16 @@
+<a [routerLink]="['/']">Home</a>
+<p>Edit this author</p>
+<div *ngIf="errs">
+    <div *ngFor="let err of errs">
+        <p>{{err}}</p> 
+    </div>
+</div>
+<p> {{ updatedAuthor | json }} </p>
+<form (submit)="edit(selectedAuthor._id)">
+    <label>Name:</label>
+    <br>
+    <input type="text" name="name"  value="{{selectedAuthor?.name}}" [(ngModel)]="updatedAuthor.name">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+<button [routerLink]="['/']">Cancel</button>

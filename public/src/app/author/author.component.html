@@ -1,0 +1,16 @@
+<a [routerLink]="['/']">Home</a>
+<p>Add a new author:</p>
+<div *ngIf="errs">
+    <div *ngFor="let err of errs">
+    <p>{{err}}</p> 
+    </div>
+</div>
+<p> {{ newAuthor | json }} </p>
+<form (submit)="addAuthorEvent()">
+    <label>Name:</label>
+    <br>
+    <input type="text" name="name" [(ngModel)]="newAuthor.name" />
+    <br><br>
+    <input type="submit" value="Submit" />
+</form>
+<button [routerLink]="['/']">Cancel</button>
